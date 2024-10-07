@@ -1,0 +1,70 @@
+@startuml
+class Usuario{
+    + String nome
+    + String CPF
+    + String endereco
+    + String login
+    + String senha
+}
+class Aluno {
+    + String email
+    + String RG
+    + String endereco
+    + String instituicao
+    + String curso
+    + resgatarVantagem(vantagem: Vantagem): void
+    + receberMoeda(moeda: Moeda): void
+}
+
+class Professor {
+    + String departamento
+    + double saldo
+    + enviarMoeda(aluno: Aluno, moeda: Moeda): void
+    + consultarSaldo(): void
+}
+
+class EmpresaParceira {
+    + String descricao
+    + List<Vantagem> vantagens
+    + cadastrarVantagem(vantagem: Vantagem): void
+    + consultarTrocas(): void
+}
+
+class Vantagem {
+    + String descricao
+    + double custo
+    + EmpresaParceira empresa
+}
+
+class Moeda {
+    + short valor
+    + String mensagem
+    + Date dataTransacao
+}
+
+class Resgate{
+    + Vantagem vantagem
+    + Aluno aluno
+    + Valor Moeda
+    + Date data
+    + notificar() void
+}
+
+class Transacao {
+    + Moeda moeda
+    + Aluno aluno
+    + Professor professor
+    + Date data
+    + notificar() void
+}
+
+Usuario <|-- Aluno
+Usuario <|-- Professor
+Usuario <|-- EmpresaParceira
+Aluno "1" -- "*" Transacao : recebe
+Professor "1" -- "*" Transacao : envia
+EmpresaParceira "1" -- "*" Vantagem : oferece
+Aluno "1" -- "*" Resgate : realiza
+Vantagem "1" -- "*" Resgate : é resgatada
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+actor "Aluno" as aluno
+actor "Professor" as professor
+actor "Empresa Parceira" as empresa
+
+rectangle  sistema {
+    usecase "Cadastrar no Sistema" as Cadastrar
+    usecase "Login no Sistema" as Login
+    usecase "Consultar Saldo e Histórico" as Saldo
+    usecase "Trocar Moedas por Vantagem" as Resgate
+    usecase "Enviar Moedas aos Alunos" as Enviar
+    usecase "Cadastrar Vantagens" as Vantagem
+    usecase "Notificar" as Notificacao
+    usecase "Receber Moedas Semestrais" as Receber
+
+    aluno --> Cadastrar : cadastrar no sistema
+    aluno --> Login : Fazer login no sistema 
+    aluno --> Saldo : consulta saldo
+    aluno --> Resgate : resgata vantagem
+    professor --> Login : Fazer login no sistema
+    professor --> Saldo : consulta saldo 
+    professor --> Enviar : envia moedas
+    professor --> Receber : moedas semestrais 
+    empresa --> Cadastrar : cadastrar no sistema
+    empresa --> Login : Fazer login no sistema 
+    empresa --> Vantagem : cadastra vantagem
+    
+    
+
+
+    Resgate .> Notificacao : <<extends>>
+    Enviar .> Notificacao : <<extends>>
+}
+@enduml
