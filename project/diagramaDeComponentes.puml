@@ -22,13 +22,6 @@ package "Model" {
     [Servico Autenticacao] --> [Repositorio Autenticacao]
 }
 
-package "Database" {
-    [Repositorio Aluno] --> [Tabela Aluno]
-    [Repositorio Professor] --> [Tabela Professor]
-    [Repositorio Empresa] --> [Tabela Empresa]
-    [Repositorio Transacao] --> [Tabela Transacao]
-    [Repositorio Vantagem] --> [Tabela Vantagem]
-}
 
 [View] --> [Controller] : Interação do Usuário
 [Controller] --> [Model] : Processamento e Atualização
