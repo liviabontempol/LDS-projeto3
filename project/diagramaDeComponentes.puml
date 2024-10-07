@@ -6,24 +6,13 @@ package "View" {
     [Tela de Envio de Moedas] --> [Controlador Professor]
     [Tela de Troca de Moedas] --> [Controlador Aluno]
     [Tela de Cadastro de Empresa] --> [Controlador Empresa]
-package "View" {
-    [Tela de Cadastro de Aluno] --> [Controlador Aluno]
-    [Tela de Login] --> [Controlador Autenticacao]
-    [Tela de Consulta de Saldo] --> [Controlador Aluno]
-    [Tela de Envio de Moedas] --> [Controlador Professor]
-    [Tela de Troca de Moedas] --> [Controlador Aluno]
-    [Tela de Cadastro de Empresa] --> [Controlador Empresa]
 }
 
-package "Controller" {
 package "Controller" {
     [Controlador Aluno] --> [Servico Aluno]
     [Controlador Professor] --> [Servico Professor]
     [Controlador Empresa] --> [Servico Empresa]
     [Controlador Autenticacao] --> [Servico Autenticacao]
-}
-
-package "Model" {
 }
 
 package "Model" {
