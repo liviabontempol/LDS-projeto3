@@ -11,7 +11,7 @@ Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
 ## Instruções de utilização
 Pretende-se desenvolver um sistema para estimular o reconhecimento do mérito estudantil através de uma moeda virtual. Essa moeda pode ser distribuída por professores aos seus alunos e trocada pelos alunos por produtos e descontos em empresas parceiras. Após a análise inicial de requisitos do sistema, foram levantadas as seguintes informações:
 
-###Descrição do Sistema:
+### Descrição do Sistema:
 Os alunos que desejam ingressar no sistema de mérito devem realizar um cadastro, indicando nome, email, CPF, RG, Endereço, Instituição de Ensino e curso. As instituições participantes já estão pré-cadastradas no sistema, para que o aluno selecione.
 
 Os professores já estarão pré-cadastrados no sistema (a instituição envia a lista no momento da parceria). Cada professor terá armazenado o seu nome, CPF e departamento que está vinculado. É necessário deixar explícito que ele faz parte de uma instituição.
