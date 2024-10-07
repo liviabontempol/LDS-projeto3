@@ -1,31 +1,28 @@
 @startuml
-component "Interface Web" {
-    [Cadastro Aluno] --> [Controlador Aluno]
-    [Login] --> [Controlador Autenticacao]
-    [Consulta Saldo] --> [Controlador Aluno]
-    [Envio de Moedas] --> [Controlador Professor]
-    [Consulta Vantagens] --> [Controlador Aluno]
-    [Resgate de Vantagem] --> [Controlador Aluno]
+package "View" {
+    [Tela de Cadastro de Aluno] --> [Controlador Aluno]
+    [Tela de Login] --> [Controlador Autenticacao]
+    [Tela de Consulta de Saldo] --> [Controlador Aluno]
+    [Tela de Envio de Moedas] --> [Controlador Professor]
+    [Tela de Troca de Moedas] --> [Controlador Aluno]
+    [Tela de Cadastro de Empresa] --> [Controlador Empresa]
 }
 
-component "Backend API" {
+package "Controller" {
     [Controlador Aluno] --> [Servico Aluno]
     [Controlador Professor] --> [Servico Professor]
     [Controlador Empresa] --> [Servico Empresa]
     [Controlador Autenticacao] --> [Servico Autenticacao]
+}
+
+package "Model" {
     [Servico Aluno] --> [Repositorio Aluno]
     [Servico Professor] --> [Repositorio Professor]
     [Servico Empresa] --> [Repositorio Empresa]
+    [Servico Autenticacao] --> [Repositorio Autenticacao]
 }
 
-component "Banco de Dados" {
-    [Repositorio Aluno] --> [Tabela Aluno]
-    [Repositorio Professor] --> [Tabela Professor]
-    [Repositorio Empresa] --> [Tabela Empresa]
-    [Repositorio Transacao] --> [Tabela Transacao]
-    [Repositorio Vantagem] --> [Tabela Vantagem]
-}
-
-[Interface Web] --> [Backend API] : HTTP Requests
-[Backend API] --> [Banco de Dados] : SQL Queries
+[View] --> [Controller] : Interação do Usuário
+[Controller] --> [Model] : Processamento e Atualização
+[Model] --> [Database] : Persistência dos Dados
 @enduml
