@@ -1,5 +1,5 @@
 # Sistema de Moeda Estudantil
-Escreva um ou dois parágrafo resumindo o objetivo do seu projeto.
+Este projeto visa desenvolver um sistema de mérito estudantil que utiliza uma moeda virtual para reconhecer e recompensar os alunos por seus desempenho. Professores podem distribuir moedas aos alunos como forma de reconhecimento por bom comportamento e participação em aula. Os alunos podem trocar essas moedas por produtos e descontos oferecidos por parceiros. O sistema permite que alunos, professores e empresas parceiras se cadastrem, gerenciem suas contas e realizem transações de forma segura e eficiente.
 
 ## Integrantes
 * Francisley Magalhaes
