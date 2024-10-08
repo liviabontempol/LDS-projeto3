@@ -12,13 +12,12 @@ class Aluno {
     + String endereco
     + String instituicao
     + String curso
-    + resgatarVantagem(vantagem: Vantagem): void
-    + receberMoeda(moeda: Moeda): void
+    
 }
 
 class Professor {
     + String departamento
-    + double saldo
+    + short saldo
     + enviarMoeda(aluno: Aluno, moeda: Moeda): void
     + consultarSaldo(): void
 }
@@ -26,32 +25,30 @@ class Professor {
 class EmpresaParceira {
     + String descricao
     + List<Vantagem> vantagens
-    + cadastrarVantagem(vantagem: Vantagem): void
+    
     + consultarTrocas(): void
 }
 
 class Vantagem {
     + String descricao
-    + double custo
+    + short custo
     + EmpresaParceira empresa
++ cadastrarVantagem(vantagem: Vantagem): void
 }
 
-class Moeda {
-    + short valor
-    + String mensagem
-    + Date dataTransacao
-}
 
 class Resgate{
     + Vantagem vantagem
     + Aluno aluno
-    + Valor Moeda
+    + tracao valor
     + Date data
     + notificar() void
++ resgatarVantagem(vantagem: Vantagem): void
 }
 
 class Transacao {
-    + Moeda moeda
+    + short valor
+    +String mensagem
     + Aluno aluno
     + Professor professor
     + Date data
