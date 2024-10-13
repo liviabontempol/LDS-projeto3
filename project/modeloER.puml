@@ -1,0 +1,58 @@
+@startuml
+entity Usuario {
+    +id: UUID
+    +nome: String
+    +email: String
+    +cpf: String
+    +rg: String
+    +endereco: String
+    +login: String
+    +senha: String
+}
+
+entity Aluno {
+    +instituicao: String
+    +curso: String
+    +saldo_moedas: Integer
+}
+
+entity Professor {
+    +instituicao: String
+    +departamento: String
+    +saldo_moedas: Integer
+}
+
+entity Empresa {
+    +nome: String
+    +descricao: String
+}
+
+entity Vantagem {
+    +id: UUID
+    +nome: String
+    +descricao: String
+    +custo_moedas: Integer
+}
+
+entity Resgate {
+    +id: UUID
+    +data_resgate: Date
+    +codigo_cupom: String
+}
+
+entity Transacao {
+    +id: UUID
+    +data: Date
+    +quantidade_moedas: Integer
+    +descricao: String
+}
+
+Usuario ||--o{ Aluno
+Usuario ||--o{ Professor
+Usuario ||--o{ Empresa
+Aluno ||--o{ Resgate
+Resgate }|--|| Vantagem
+Professor ||--o{ Transacao
+Aluno ||--o{ Transacao
+
+@enduml
