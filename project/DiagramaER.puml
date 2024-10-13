@@ -1,0 +1,68 @@
+@startuml
+entity "Aluno" as aluno {
+    id_aluno (PK)
+    nome 
+    email 
+    CPF 
+    RG 
+    endereco 
+    id_instituicao (FK) 
+    curso 
+    saldo 
+}
+
+entity "Professor" as professor {
+    id_professor (PK)
+    nome 
+    CPF 
+    departamento 
+    saldo 
+    id_instituicao (FK)
+}
+
+entity "Instituicao" as instituicao {
+    id_instituicao (PK)
+    nome 
+    endereco
+}
+
+entity "EmpresaParceira" as empresaParceira {
+    id_empresa (PK)
+    nome 
+    descricao
+    endereco 
+}
+
+entity "Vantagem" as vantagem {
+    id_vantagem (PK)
+    descricao 
+    custo 
+    foto 
+    id_empresa (FK)
+}
+
+entity "Transacao" as transacao {
+    id_transacao (PK)
+    valor 
+    mensagem 
+    data 
+    id_professor (FK)
+    id_aluno (FK)
+}
+
+entity "Resgate" as resgate {
+    id_resgate (PK)
+    data 
+    id_vantagem (FK)
+    id_aluno (FK)
+    codigo_cupom
+}
+
+aluno ||--o{ transacao : "recebe"
+professor ||--o{ transacao : "envia"
+aluno ||--o{ resgate : "realiza"
+vantagem ||--o{ resgate : "é resgatada"
+empresaParceira ||--o{ vantagem : "oferece"
+instituicao ||--o{ aluno : "possui"
+instituicao ||--o{ professor : "possui"
+@enduml
