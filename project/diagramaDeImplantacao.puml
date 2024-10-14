@@ -1,0 +1,23 @@
+@startuml
+node "Cliente Web" {
+    [Navegador]
+}
+
+node "Servidor de Aplicação" {
+    [Aplicação MVC] --> [Controlador Aluno]
+    [Aplicação MVC] --> [Controlador Professor]
+    [Aplicação MVC] --> [Controlador Empresa]
+}
+
+node "Servidor de Banco de Dados" {
+    [Banco de Dados] --> [Tabela Aluno]
+    [Banco de Dados] --> [Tabela Professor]
+    [Banco de Dados] --> [Tabela Empresa]
+    [Banco de Dados] --> [Tabela Transacao]
+    [Banco de Dados] --> [Tabela Vantagem]
+}
+
+[Navegador] --> [Aplicação MVC] : HTTP Requests
+[Aplicação MVC] --> [Banco de Dados] : SQL Queries
+
+@enduml
