@@ -1,23 +1,35 @@
 @startuml
-node "Cliente Web" {
-    [Navegador]
+left to right direction
+
+node "Aluno Browser" {
+    [Resgatar Vantagem]
+    [Consultar Saldo]
+}
+node "Professor Browser" {
+    [Login]
+    [Consultar Saldo]
+    [Enviar Moedas]
+}
+node "Empresa Browser" {
+    [Login]
+    [Cadastrar Vantagem]
+    [Consultar]
 }
 
 node "Servidor de Aplicação" {
-    [Aplicação MVC] --> [Controlador Aluno]
-    [Aplicação MVC] --> [Controlador Professor]
-    [Aplicação MVC] --> [Controlador Empresa]
+    [UsuarioView] --> [UsuarioController]
+    [UsuarioController] --> [UsuarioModel]
+    [UsuarioModel] --> [UsuarioRepository]
 }
 
 node "Servidor de Banco de Dados" {
-    [Banco de Dados] --> [Tabela Aluno]
-    [Banco de Dados] --> [Tabela Professor]
-    [Banco de Dados] --> [Tabela Empresa]
-    [Banco de Dados] --> [Tabela Transacao]
-    [Banco de Dados] --> [Tabela Vantagem]
+    [SGBD]
 }
 
-[Navegador] --> [Aplicação MVC] : HTTP Requests
-[Aplicação MVC] --> [Banco de Dados] : SQL Queries
+[Aluno Browser] ..> [Servidor de Aplicação] : HTTP Requests: 3306
+[Professor Browser] ..> [Servidor de Aplicação] : HTTP Requests 
+[Empresa Browser] ..> [Servidor de Aplicação] : HTTP Requests
+[Servidor de Aplicação]--> [Servidor de Banco de Dados] : Consultas SQL
+[UsuarioRepository] --> [SGBD]
 
 @enduml
