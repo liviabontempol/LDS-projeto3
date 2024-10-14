@@ -1,6 +1,5 @@
 package br.com.pucminas.lds3.model;
 
-import org.springframework.lang.NonNull;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,17 +9,28 @@ public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_aluno;
 
+    @Column(nullable = false, length = 100)
     private String nome;
+
+    @Column(nullable = false, length = 100)
     private String email;
     
-    @NonNull
+    @Column(nullable = false, length = 15)
     private String CPF;
 
-    @NonNull
+    @Column(nullable = false, length = 15)
     private String RG;
+
+    @Column(nullable = false, length = 200)
     private String endereco;
+
+    @Column(nullable = false, length = 100)
     private String curso;
+
+    @Column(nullable = false, length = 100)
     private String instituicao;
+
+    @Column(nullable = false)
     private Double saldo;
 
     public Aluno(String nome, String email, String CPF, String RG, String endereco, String curso, Double saldo, String instituicao) {
