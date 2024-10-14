@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+node "Aluno Browser" {
+    [Resgatar Vantagem]
+    [Consultar Saldo]
+}
+node "Professor Browser" {
+    [Login]
+    [Consultar Saldo]
+    [Enviar Moedas]
+}
+node "Empresa Browser" {
+    [Login]
+    [Cadastrar Vantagem]
+    [Consultar]
+}
+
+node "Servidor de Aplicação" {
+    [UsuarioView] --> [UsuarioController]
+    [UsuarioController] --> [UsuarioModel]
+    [UsuarioModel] --> [UsuarioRepository]
+}
+
+node "Servidor de Banco de Dados" {
+    [SGBD]
+}
+
+[Aluno Browser] ..> [Servidor de Aplicação] : HTTP Requests: 3306
+[Professor Browser] ..> [Servidor de Aplicação] : HTTP Requests 
+[Empresa Browser] ..> [Servidor de Aplicação] : HTTP Requests
+[Servidor de Aplicação]--> [Servidor de Banco de Dados] : Consultas SQL
+[UsuarioRepository] --> [SGBD]
+
+@enduml
