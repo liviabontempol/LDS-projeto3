@@ -6,14 +6,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "empresa")
-public class Empresa {
+public class Empresa extends User{
 
-    @Id
+   /*  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpresa;
-
-    @Column(nullable = false, length = 100)
-    private String nome;
+    private Long idEmpresa;*/
 
     @Column(nullable = false, length = 255)
     private String descricao;
@@ -21,28 +18,22 @@ public class Empresa {
     @OneToMany(mappedBy = "empresa")
     private List<Vantagem> vantagens;
 
-    public Empresa(String nome, String descricao) {
-        this.nome = nome;
-        this.descricao = descricao;
 
+    public Empresa(String nome, String email, String password, Long idEmpresa, String nome2, String descricao,
+            List<Vantagem> vantagens) {
+        super(nome, email, password);
+        //this.idEmpresa = idEmpresa;
+        this.descricao = descricao;
+        this.vantagens = vantagens;
     }
 
-    
-    public Long getIdEmpresa() {
+   /* public Long getIdEmpresa() {
         return idEmpresa;
     }
 
     public void setIdEmpresa(Long idEmpresa) {
         this.idEmpresa = idEmpresa;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    } */
 
     public String getDescricao() {
         return descricao;

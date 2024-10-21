@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
-        Optional<Empresa> findById(String id);
+        Optional<Empresa> findById(Long id);
     Optional<Empresa> findByEmail(String email);
 }
 

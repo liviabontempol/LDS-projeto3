@@ -29,6 +29,10 @@ public class AlunoService {
         return alunoRepository.findById(id);
     }
 
+    public Optional<Aluno> buscarAlunoPorEmail(String email) {
+        return alunoRepository.findByEmail(email);
+    }
+
     public Aluno atualizarAluno(Long id, Aluno alunoAtualizado) {
         Optional<Aluno> alunoExistente = alunoRepository.findById(id);
         if (alunoExistente.isPresent()) {

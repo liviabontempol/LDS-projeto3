@@ -24,10 +24,9 @@ public class Aluno extends User {
     @Column(nullable = false)
     private Double saldo;
 
-    public Aluno(String nome, String email, String password, String nome2, String cPF, String rG, String endereco,
+    public Aluno(String nome, String email, String password, String cPF, String rG, String endereco,
             String curso, String instituicao, Double saldo) {
         super(nome, email, password);
-        nome = nome2;
         CPF = cPF;
         RG = rG;
         this.endereco = endereco;

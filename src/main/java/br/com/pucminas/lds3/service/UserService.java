@@ -32,7 +32,7 @@ public class UserService {
             User user = userExistente.get();
             user.setNome(userAtualizado.getNome());
             user.setEmail(userAtualizado.getEmail());
-            
+            // Atualize outros campos conforme necessário
             return userRepository.save(user);
         } else {
             return null;
