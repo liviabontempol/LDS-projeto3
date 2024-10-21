@@ -1,5 +1,6 @@
 package br.com.pucminas.lds3.model;
 
+
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,9 +18,8 @@ public class Empresa {
     @Column(nullable = false, length = 255)
     private String descricao;
 
-    @OneToMany
-    private List<?> vantagens;
-    //coloquei o ? no tipo pq ainda n temos a classe vantagem
+    @OneToMany(mappedBy = "empresa")
+    private List<Vantagem> vantagens;
 
     public Empresa(String nome, String descricao) {
         this.nome = nome;
@@ -52,11 +52,11 @@ public class Empresa {
         this.descricao = descricao;
     }
 
-    public List<?> getVantagens() {
+    public List<Vantagem> getVantagens() {
         return vantagens;
     }
 
-    public void setVantagens(List<?> vantagens) {
+    public void setVantagens(List<Vantagem> vantagens) {
         this.vantagens = vantagens;
     }
 }
