@@ -5,13 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "alunos")
 public class Aluno extends User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_aluno;
 
-    @Column(nullable = false, length = 100)
-    private String nome;
-    
     @Column(nullable = false, length = 15)
     private String CPF;
 
@@ -30,30 +24,16 @@ public class Aluno extends User {
     @Column(nullable = false)
     private Double saldo;
 
-    public Aluno(String nome, String CPF, String RG, String endereco, String curso, Double saldo, String instituicao) {
-        this.nome = nome;
-        this.CPF = CPF;
-        this.RG = RG;
+    public Aluno(String nome, String email, String password, String nome2, String cPF, String rG, String endereco,
+            String curso, String instituicao, Double saldo) {
+        super(nome, email, password);
+        nome = nome2;
+        CPF = cPF;
+        RG = rG;
         this.endereco = endereco;
         this.curso = curso;
-        this.saldo = saldo;
         this.instituicao = instituicao;
-    }
-   
-    public Long getId_aluno() {
-        return id_aluno;
-    }
-
-    public void setId_aluno(Long id_aluno) {
-        this.id_aluno = id_aluno;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+        this.saldo = saldo;
     }
 
     public String getCPF() {

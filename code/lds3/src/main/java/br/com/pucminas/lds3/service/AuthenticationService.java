@@ -19,7 +19,7 @@ public class AuthenticationService {
         User user = userRepository.findByEmail(loginRequest.getEmail());
         
         if (user != null && passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-            // Autenticação bem-sucedida
+            
             return true;
         }
         
