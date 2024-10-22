@@ -5,12 +5,10 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "empresa")
+@DiscriminatorValue("empresa")
 public class Empresa extends User{
 
-   /*  @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpresa;*/
+   
 
     @Column(nullable = false, length = 255)
     private String descricao;
@@ -27,13 +25,7 @@ public class Empresa extends User{
         this.vantagens = vantagens;
     }
 
-   /* public Long getIdEmpresa() {
-        return idEmpresa;
-    }
-
-    public void setIdEmpresa(Long idEmpresa) {
-        this.idEmpresa = idEmpresa;
-    } */
+   
 
     public String getDescricao() {
         return descricao;

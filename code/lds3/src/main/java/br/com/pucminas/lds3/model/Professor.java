@@ -3,7 +3,10 @@ package br.com.pucminas.lds3.model;
 import jakarta.persistence.*;
 
 @Entity
+@DiscriminatorValue("professor")
 public class Professor extends User {
+
+   
 
     @Column(nullable = false, length = 100)
     private String departamento;
@@ -17,6 +20,7 @@ public class Professor extends User {
         this.saldo = saldo;
     }
 
+   
     public String getDepartamento() {
         return departamento;
     }

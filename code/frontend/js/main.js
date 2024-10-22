@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8080'; // Ajuste conforme necessário
+const API_BASE_URL = 'http://localhost:3000'; // Ajuste conforme necessário
 
 async function fetchAPI(url, method, body = null, token = null) {
     const headers = {

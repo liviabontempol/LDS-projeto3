@@ -3,19 +3,20 @@ package br.com.pucminas.lds3.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "alunos")
+@DiscriminatorValue("aluno")
 public class Aluno extends User {
 
-    @Column(nullable = false, length = 15)
+
+    @Column(nullable = false, unique = true)
     private String CPF;
 
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false, unique = true)
     private String RG;
 
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, unique = true)
     private String endereco;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, unique = true)
     private String curso;
 
     @Column(nullable = false, length = 100)
@@ -23,6 +24,8 @@ public class Aluno extends User {
 
     @Column(nullable = false)
     private Double saldo;
+
+     
 
     public Aluno(String nome, String email, String password, String cPF, String rG, String endereco,
             String curso, String instituicao, Double saldo) {
@@ -34,6 +37,8 @@ public class Aluno extends User {
         this.instituicao = instituicao;
         this.saldo = saldo;
     }
+
+  
 
     public String getCPF() {
         return CPF;

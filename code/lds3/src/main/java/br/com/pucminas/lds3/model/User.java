@@ -2,7 +2,11 @@ package br.com.pucminas.lds3.model;
 
 import jakarta.persistence.*;
 
-public class User {
+@Entity
+@Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

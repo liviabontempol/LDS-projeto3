@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/alunos")
+@CrossOrigin(origins = "http://localhost:5503")
 public class AlunoController {
 
     @Autowired
@@ -47,5 +48,20 @@ public class AlunoController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/teste")
+    public ResponseEntity<Aluno> testarCriacaoAluno() {
+        Aluno aluno = new Aluno(null, null, null, null, null, null, null, null, null);
+        aluno.setNome("Teste");
+        aluno.setEmail("teste@example.com");
+        aluno.setCPF("12345678901");
+        aluno.setRG("1234567");
+        aluno.setEndereco("Rua Teste, 123");
+        aluno.setInstituicao("Instituição Teste");
+        aluno.setCurso("Curso Teste");
+
+        Aluno novoAluno = alunoService.criarAluno(aluno);
+        return new ResponseEntity<>(novoAluno, HttpStatus.CREATED);
     }
 }
